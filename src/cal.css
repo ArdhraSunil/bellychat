@@ -1,0 +1,79 @@
+.calendar-container {
+    display: flex;
+    align-items: flex-start; /* Align to the top */
+    margin-left: auto; /* Push to the extreme right */
+  }
+  
+  .calendar-dropdown {
+    position: relative;
+    background-color: black; /* Blue background color */
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #fff; /* White text color */
+    cursor: pointer;
+  }
+  
+  .current-7-days {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .day-circle {
+    width: 30px;
+    height: 30px;
+    background-color: black; /* Blue circle background color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* White text color */
+    font-size: 16px;
+  }
+  
+  /* Add styles for react-calendar if needed */
+  
+  .react-calendar {
+    background-color: black; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none;
+    font-size: 12px; /* Decreasing font size */
+  max-width: 200px; /* Limiting the width */
+  max-height: 200px; 
+  }
+  
+  .react-calendar__navigation {
+    background-color: black; /* Blue background color */
+  }
+  
+  .react-calendar__navigation__label {
+    color: #fff; /* White text color */
+    font-size: 18px;
+  }
+  
+  .react-calendar__month-view__weekdays {
+    background-color: black; /* Blue background color */
+    color: #fff; /* White text color */
+    font-weight: bold;
+  }
+  
+  .react-calendar__month-view__weekdays__weekday {
+    background-color: transparent;
+  }
+
+  .react-calendar__month-view__weekdays,
+.react-calendar__month-view__weekdays__weekday,
+.day-circle {
+  width: 20px; /* Decreasing circle width */
+  height: 20px; /* Decreasing circle height */
+  font-size: 12px; /* Decreasing font size */
+}
