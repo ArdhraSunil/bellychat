@@ -13,6 +13,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import HistoryIcon from '@mui/icons-material/History';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 const transitionDuration = 200;
@@ -77,18 +78,24 @@ const Sidebar = () => {
           <ListItem style={listItemStyle} button>
 
             <AccountCircleIcon/>
+            <Link to='/userprofilecard'>
             <ListItemText primary="Profile" />
+            </Link>
       
           </ListItem >
           <ListItem style={listItemStyle} button>
           
             <PlayArrowIcon />
+            <Link to='/tracknow'>
             <ListItemText primary="Track Now" />
+            </Link>
             {/* <Link to={'/profile'} style={{textDecoration:'none'}}></Link> */}
           </ListItem>
           <ListItem style={listItemStyle} button>
             <HistoryIcon />
+            <Link to='/history'>
             <ListItemText primary="History" />
+            </Link>
           </ListItem>
           <ListItem style={listItemStyle}  button>
            < TipsAndUpdatesIcon/>

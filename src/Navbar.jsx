@@ -3,7 +3,8 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ isLoggedIn }) {
+  console.log('isLoggedIn:', isLoggedIn);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -24,9 +25,11 @@ function Navbar() {
 
   window.addEventListener('resize', showButton);
 
+  
+  if (!isLoggedIn) {
   return (
-    <>
-      <nav className='navbar'>
+    
+    <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             
@@ -39,7 +42,9 @@ function Navbar() {
                 Home
               </Link>
             </li>
-             
+
+            
+            
              <li className='nav-item'>
               <Link
                 to='/login'
@@ -63,8 +68,11 @@ function Navbar() {
           {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>
       </nav>
-    </>
+      
+    
   );
+}
+return null;
 }
 
 export default Navbar;

@@ -3,7 +3,7 @@ import './history.css';
 import Cal from './Cal';
 import Graph from './Graph';
 
-const history = () => {
+const History = () => {
     return(
         <div className="h">
             <div className="heading">
@@ -31,4 +31,4 @@ const history = () => {
 
 };
 
-export default history;
+export default History;

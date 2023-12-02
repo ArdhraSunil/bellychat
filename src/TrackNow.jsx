@@ -20,6 +20,7 @@ const TrackNow = () => {
   };
 
   return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh',marginLeft:'550px' }}>
     <Container>
       <Typography variant="h4" gutterBottom>
         TrackNow
@@ -78,6 +79,7 @@ const TrackNow = () => {
         Enter
       </Button>
     </Container>
+    </div>
   );
 };
 

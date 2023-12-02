@@ -3,10 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './signup.css'; // Import the CSS file
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
 
 
-  const SignUp = () => {
+  const SignUp = ({ isLoggedIn }) => {
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -71,6 +72,8 @@ import { Link } from 'react-router-dom';
     };
 
   return (
+    <>
+    <Navbar isLoggedIn={isLoggedIn} />
     <div className="bg-div">
       <div className='c-div'>
       <div className="form-container">
@@ -104,6 +107,7 @@ import { Link } from 'react-router-dom';
         </div>
       </div>
     </div>
+    </>
   );
 };
 

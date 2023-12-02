@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './signup.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar'; 
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -37,6 +41,8 @@ const Login = () => {
       if (response.ok) {
         console.log('User logged in successfully:', data);
         // Redirect or perform other actions as needed
+        setIsLoggedIn(true);
+        navigate('/tracknow');
       } else {
         console.error('Error logging in:', data.error);
         // Handle error, show error message, etc.
@@ -48,6 +54,7 @@ const Login = () => {
   };
 
   return (
+    
     <div className="bg-div">
       <div className='c-div'>
       <div className="form-container">
@@ -76,6 +83,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 
