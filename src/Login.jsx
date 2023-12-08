@@ -4,9 +4,11 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './signup.css'; // Import the CSS file
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar'; 
+import { useUserContext } from './UserContext';
 
 const Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
+  const { setUserEmailContext } = useUserContext();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +29,7 @@ const Login = ({ setIsLoggedIn }) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*', // Include this only if needed; it's usually handled by the server
+          'Access-Control-Allow-Origin': '*', 
         },
         body: JSON.stringify({
           email,
@@ -37,19 +39,22 @@ const Login = ({ setIsLoggedIn }) => {
   
       const data = await response.json();
   
-      // Handle the response from the server
+      
       if (response.ok) {
         console.log('User logged in successfully:', data);
-        // Redirect or perform other actions as needed
+       
+        const userEmail = data.user.email;
+        setUserEmailContext(userEmail);
+
         setIsLoggedIn(true);
         navigate('/tracknow');
       } else {
         console.error('Error logging in:', data.error);
-        // Handle error, show error message, etc.
+        
       }
     } catch (error) {
       console.error('Error:', error.message);
-      // Handle network error, show error message, etc.
+      
     }
   };
 

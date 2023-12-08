@@ -17,8 +17,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //import Footer from './Footer';
 import TrackNow from './TrackNow';
 import Sidebar from './Sidebar';
-import UserProfileCard from './UserProfileCard';
+//import UserProfileCard from './UserProfilePage';
 import History from './History';
+//import UserProfilePage from './UserProfilePage';
+import UserProfileCard from './UserProfileCard';
+import { UserProvider } from './UserContext';
 
 
 // function App() {
@@ -59,11 +62,51 @@ import History from './History';
 
 
 
+// function App() {
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//   return (
+//     <>
+//       <Router>
+//         {isLoggedIn && <Navbar isLoggedIn={isLoggedIn} />}
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route
+//             path="/login"
+//             element={<Login setIsLoggedIn={setIsLoggedIn} />}
+//           />
+//           <Route path="/sign-up" element={<SignUp />} />
+//           <Route
+//             path="/tracknow"
+//             element={
+//               <>
+//                 {isLoggedIn && <Sidebar />}
+//                 <TrackNow />
+//               </>
+//             }
+//           />
+
+//           <Route path="/userprofilecard" element={<UserProfileCard />} />
+//           <Route path="/history" element={<History />} />
+//         </Routes>
+//       </Router>
+//     </>
+//   );
+// }
+
+
+
+
+
+
+
+
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <>
+    <UserProvider>
       <Router>
         {isLoggedIn && <Navbar isLoggedIn={isLoggedIn} />}
         <Routes>
@@ -83,12 +126,12 @@ function App() {
             }
           />
 
-          <Route path="/userprofilecard" element={<UserProfileCard/>} />
-          <Route path="/tracknow" element={<TrackNow/>} />
-           <Route path="/history" element={<History/>} />
+
+          <Route path="/userprofilecard" element={<UserProfileCard />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </Router>
-    </>
+      </UserProvider>
   );
 }
 

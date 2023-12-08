@@ -2,9 +2,12 @@ import React from "react";
 import './history.css';
 import Cal from './Cal';
 import Graph from './Graph';
+import Sidebar from './Sidebar';
 
 const History = () => {
     return(
+         <div>
+    <Sidebar />
         <div className="h">
             <div className="heading">
       <h1 className="left-heading">HISTORY</h1>
@@ -25,6 +28,7 @@ const History = () => {
        <div className="g">
         <Graph/>
        </div>
+    </div>
     </div>
     
     );
