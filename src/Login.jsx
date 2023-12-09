@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import './signup.css'; // Import the CSS file
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar'; 
 import { useUserContext } from './UserContext';
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = ({ setIsLoggedIn}) => {
   const navigate = useNavigate();
   const { setUserEmailContext } = useUserContext();
 
@@ -20,6 +20,7 @@ const Login = ({ setIsLoggedIn }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -47,17 +48,31 @@ const Login = ({ setIsLoggedIn }) => {
         setUserEmailContext(userEmail);
 
         setIsLoggedIn(true);
-        navigate('/tracknow');
-      } else {
-        console.error('Error logging in:', data.error);
+      //   navigate('/tracknow', { state: { userEmail } });
+      // } else {
+      //   console.error('Error logging in:', data.error);
         
+      // }
+      
+    
+      
+      if (userEmail) {
+        console.log('Navigating to /tracknow with userEmail:', userEmail);
+        navigate('/tracknow', { state: { userEmail } });
+      } else {
+        console.error('User email is undefined or null');
       }
+    } else {
+      console.error('Error logging in:', data.error);
+    }
     } catch (error) {
       console.error('Error:', error.message);
       
     }
   };
 
+    
+  
   return (
     
     <div className="bg-div">

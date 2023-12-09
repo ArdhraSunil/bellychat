@@ -56,6 +56,25 @@ db.connect((err) => {
     console.error('Error creating user_profile table:', err.message);
   } else {
     console.log('User profile table created successfully.');
+
+    db.query(`
+  CREATE TABLE IF NOT EXISTS tracking_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    drinkingWater VARCHAR(255),
+    showers VARCHAR(255),
+    showerDuration VARCHAR(255),
+    waterTapsUsage VARCHAR(255),
+    otherUsage VARCHAR(255),
+    date TIMESTAMP,
+    userEmail VARCHAR(255)
+  );
+`, (err) => {
+  if (err) {
+    console.error('Error creating tracking_data table:', err.message);
+  } else {
+    console.log('Tracking data table created successfully.');
+  }
+});
   }
 });
         
@@ -66,7 +85,7 @@ db.connect((err) => {
 
 
 // db.query(`
-//       DROP TABLE IF EXISTS user_profile;
+//       DROP TABLE IF EXISTS tracking_data;
 //     `, (err) => {
 //       if (err) {
 //         console.error('Error dropping user_profile table:', err.message);
@@ -78,7 +97,8 @@ db.connect((err) => {
 // });
 //   }
 // });
-
+//   }
+// });
 
 
 
@@ -201,7 +221,23 @@ app.post('/userProfile', (req, res) => {
 });
 
 
+app.post('/trackData', (req, res) => {
+  const { answers, date, userEmail } = req.body;
 
+  db.query(
+    'INSERT INTO tracking_data (drinkingWater, showers, showerDuration, waterTapsUsage, otherUsage, date, userEmail) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [answers.drinkingWater, answers.showers, answers.showerDuration, answers.waterTapsUsage, answers.otherUsage, date, userEmail],
+    (err, result) => {
+      if (err) {
+        console.error('Error inserting tracking data:', err.message);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else {
+        console.log('Tracking data inserted successfully.');
+        res.status(200).json({ message: 'Tracking data submitted successfully', trackingDataId: result.insertId });
+      }
+    }
+  );
+});
 
 
 

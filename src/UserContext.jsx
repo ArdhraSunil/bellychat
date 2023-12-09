@@ -6,6 +6,7 @@ export const UserProvider = ({ children }) => {
   const [userEmail, setUserEmail] = useState('');
 
   const setUserEmailContext = (email) => {
+    console.log('Setting userEmail to:', email);
     setUserEmail(email);
   };
 
