@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from './Button';
+ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -12,7 +12,7 @@ function Navbar({ isLoggedIn }) {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 960) {                                                                                                                                                                                                                                               
       setButton(false);
     } else {
       setButton(true);
@@ -33,7 +33,7 @@ function Navbar({ isLoggedIn }) {
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             
-            WMS<i className='fab fa-typo3' />
+            BC<i className='fab fa-typo3' />
           </Link>
         
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -51,19 +51,19 @@ function Navbar({ isLoggedIn }) {
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Login
+                Login  
               </Link>
             </li> 
 
-            <li>
+            {/* <li>
               <Link
                 to='/sign-up'
-                className='nav-links-mobile'
+                className='nav-links'
                 onClick={closeMobileMenu}
               >
                 Sign Up
               </Link>
-            </li>
+            </li> */}
           </ul>
           {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
         </div>

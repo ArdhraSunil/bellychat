@@ -8,7 +8,7 @@ function Footer() {
     <div className='footer-container'>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
-          PRESERVE WATER PRESERVE LIFE
+          PREGNANCY CARE, ANYTIME, ANYWHERE 
         </p>
         {/* <p className='footer-subscription-text'>
           You can unsubscribe at any time.
@@ -64,11 +64,11 @@ function Footer() {
         <div className='social-media-wrap'>
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
-              WMS
+              BC 
               <i className='fab fa-typo3' />
             </Link>
           </div>
-          <small className='website-rights'>WMS © 2020</small>
+          <small className='website-rights'>BC © 2024</small>
           <div className='social-icons'>
             <Link
               className='social-icon-link facebook'

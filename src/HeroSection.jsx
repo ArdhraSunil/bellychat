@@ -8,9 +8,9 @@ function HeroSection() {
   return (
     <div className='hero-container' color='blue'>
       
-      <video src='/video-4.mp4' autoPlay loop muted /> 
-      <h1>WATER MONITORING SYSTEM</h1>
-      <p>Let's save water together!!</p>
+      <video src='/hero.mp4' autoPlay loop muted /> 
+      <h1>BELLY CHAT</h1>
+      <p>"Pregnancy, Simplified: Chat for Care, Anywhere."</p>
       {/* <div className='hero-btns'>
         <Button
           className='btns'
